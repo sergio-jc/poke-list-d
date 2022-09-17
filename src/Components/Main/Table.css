@@ -1,0 +1,29 @@
+table {
+    background-color: var(--White);
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 2px solid var(--light-gray);
+    padding: 10px;
+}
+
+
+tr th {
+    text-align: center;
+}
+
+.table__td-actions{ 
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (max-width: 600px) {
+
+    table{
+        font-size: 0.7em;
+        width: 350px;
+    }
+}

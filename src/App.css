@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+:root{
+    --light-gray : #c7cfd1;
+    --main-purple: #665aea ;
+    --White: #fff
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+    
+    display: flex;
+    border: none;
+    height: 45px;
+    width: 90px;
+    background-color: var(--main-purple);
+    color: var(--White);
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    border-radius: 4px;
+    gap: 2px;
+    cursor: pointer;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+
+    width: 211px;
+    height: 42px;
+    border: 2px solid var(--light-gray);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    transition: all 300ms ease;
+    outline: none;
+    
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+nav {
+    display: flex;
+    justify-content: space-between;
+    
 }
 
-.App-link {
-  color: #61dafb;
+.btn__new-pokemon{
+
+   margin-top: 70px;
+   margin-right:50px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container{
+    margin: 5px auto;
+    width: 800px;
+}
+
+@media (max-width: 600px) {
+    input{
+      width: 250px;
+    }
+    .main-container{
+        font-size: 0.9em;
+        width: 350px;
+    }
 }
