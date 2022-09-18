@@ -3,11 +3,16 @@ table {
     text-align: left;
     border-collapse: collapse;
     width: 100%;
+
 }
 
 th, td {
     border: 2px solid var(--light-gray);
     padding: 10px;
+}
+tr {
+    transition: all ease 200ms;
+
 }
 
 
@@ -15,7 +20,11 @@ tr th {
     text-align: center;
 }
 
-.table__td-actions{ 
+tr:hover {
+    background-color: var(--light-purple);
+}
+
+.table__td{ 
     display: flex;
     justify-content: space-around;
 }

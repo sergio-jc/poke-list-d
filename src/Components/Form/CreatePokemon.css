@@ -20,6 +20,9 @@
     gap: 10px;
     margin: 20px;
 }
+
+
+
 .create-form__input_span{
     margin-right: 4.5px;
 }
@@ -45,6 +48,10 @@
         cursor: not-allowed;
         background-color: var(--light-purple);
         pointer-events:none;
+}
+
+.error {
+    border-color: #a44257;
 }
 
 @media (max-width: 600px) {

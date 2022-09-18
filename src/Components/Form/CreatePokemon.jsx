@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./CreatePokemon.css"
 import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
+import { validate } from './func/funcAux'
 
 const CreatePokemon = ({handleToggle}) => {
   const [input, setInput] = useState({
@@ -13,13 +14,20 @@ const CreatePokemon = ({handleToggle}) => {
     type: "pokemon",
     idAuthor: 1
   })
-  console.log(input)
+  const [errors, setErrors] = useState({
+    name: "enter a name",
+    image: "copy a URL",
+  })
 
   const handleInput = (e) => {
     setInput({
       ...input,
       [e.target.name] : e.target.value
     })
+    setErrors(validate({
+      ...input,
+      [e.target.name] : e.target.value
+    }))
   }
 
   const handleSubmit = (e) =>{
@@ -46,6 +54,12 @@ const CreatePokemon = ({handleToggle}) => {
       console.log(e);
       });
   }
+  let disable ;
+  if( !errors.name.length && !errors.image.length){
+    disable = ""
+  } else {
+    disable = "create-form_disable-btn"
+  }
 
   return (
     <form onSubmit={handleSubmit} className="create-form">
@@ -54,11 +68,11 @@ const CreatePokemon = ({handleToggle}) => {
         <div>
           <label htmlFor="pokeName" className="create-form__input">
             <span className="create-form__input_span">Name:</span> 
-            <input type="text" name="name" id="pokeName" onChange={handleInput}/>
+            <input className={errors.name.length? "error": ""} type="text" name="name" id="pokeName" onChange={handleInput}/>
           </label>
           <label htmlFor="imgPokemon" className="create-form__input">
             Image:
-            <input type="text" name="image" id="imgPokemon" onChange={handleInput}/>
+            <input className={errors.image.length? "error": ""} type="text" name="image" id="imgPokemon" onChange={handleInput} placeholder="  url"/>
           </label>
         </div>
         <div>
@@ -73,7 +87,7 @@ const CreatePokemon = ({handleToggle}) => {
         </div>
       </div>
       <div className='create-form__btn-container'>
-        <button className='create-form_disable-btn'><img style={{width: '18px'}} src={save_icon} alt="search_icon" />Save</button>
+        <button className={disable}><img style={{width: '18px'}} src={save_icon} alt="search_icon" />Save</button>
         <button onClick={handleToggle}><img style={{width: '13px'}} src={close_icon} alt="search_icon" />Close</button>
       </div>
     </form>
