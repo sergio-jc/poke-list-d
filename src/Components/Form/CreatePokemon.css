@@ -20,6 +20,12 @@
     gap: 10px;
     margin: 20px;
 }
+.create-form__input_span{
+    margin-right: 4.5px;
+}
+.create-form__input-range_span{
+    margin-right: 9.2px;
+}
 
 .create-form__btn-container {
     display: flex;
