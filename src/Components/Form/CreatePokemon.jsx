@@ -3,6 +3,7 @@ import "./CreatePokemon.css"
 import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
 import { validate } from './func/funcAux'
+import { handleCreate } from './func/handleCreate.js'
 
 const CreatePokemon = ({handleToggle}) => {
   const [input, setInput] = useState({
@@ -29,31 +30,6 @@ const CreatePokemon = ({handleToggle}) => {
       [e.target.name] : e.target.value
     }))
   }
-
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(input)
-    };
-    console.log(options)
-    fetch("https://bp-pokemons.herokuapp.com/?idAuthor=1",options)
-    .then(data => {
-      if (!data.ok) {
-        throw Error(data.status);
-       }
-       return data.json();
-      }).then(update => {
-        console.log(update)
-        window.location.reload();
-      })
-      .catch(e => {
-      console.log(e);
-      });
-  }
   let disable ;
   if( !errors.name.length && !errors.image.length){
     disable = ""
@@ -62,7 +38,7 @@ const CreatePokemon = ({handleToggle}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="create-form">
+    <form onSubmit={(e)=>handleCreate(e,input)} className="create-form">
       <h2>New Pokemon</h2>
       <div className='create-form__inputs'>
         <div>
