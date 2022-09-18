@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import "./CreatePokemon.css"
+import close_icon from '../../img/close_icon.svg'
+import save_icon from '../../img/save_icon.svg'
 
 const CreatePokemon = ({handleToggle}) => {
   const [input, setInput] = useState({
@@ -45,30 +48,34 @@ const CreatePokemon = ({handleToggle}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="create-form">
       <h2>New Pokemon</h2>
-      <div>
-        <label htmlFor="pokeName">
-          Name:
-          <input type="text" name="name" id="pokeName" onChange={handleInput}/>
-        </label>
-        <label htmlFor="imgPokemon">
-          Image:
-          <input type="text" name="image" id="imgPokemon" onChange={handleInput}/>
-        </label>
+      <div className='create-form__inputs'>
+        <div>
+          <label htmlFor="pokeName" className="create-form__input">
+            Name:
+            <input type="text" name="name" id="pokeName" onChange={handleInput}/>
+          </label>
+          <label htmlFor="imgPokemon" className="create-form__input">
+            Image:
+            <input type="text" name="image" id="imgPokemon" onChange={handleInput}/>
+          </label>
+        </div>
+        <div>
+          <label htmlFor="pokeAttack" className="create-form__input">
+            Attack:
+            0<input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}/>100
+          </label>
+          <label htmlFor="pokeDefense" className="create-form__input">
+            Defense:
+            0<input type="range" name="defense" id="pokeDefense" min={0} max={100} onChange={handleInput}/>100
+          </label>
+        </div>
       </div>
-      <div>
-        <label htmlFor="pokeAttack">
-          Attack:
-          0<input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}/>100
-        </label>
-        <label htmlFor="pokeDefense">
-          Defense:
-          0<input type="range" name="defense" id="pokeDefense" min={0} max={100} onChange={handleInput}/>100
-        </label>
+      <div className='create-form__btn-container'>
+        <button className='create-form_disable-btn'><img style={{width: '18px'}} src={save_icon} alt="search_icon" />Save</button>
+        <button onClick={handleToggle}><img style={{width: '13px'}} src={close_icon} alt="search_icon" />Close</button>
       </div>
-      <button>Save</button>
-      <button onClick={handleToggle}><span>x</span>Close</button>
     </form>
   )
 }
