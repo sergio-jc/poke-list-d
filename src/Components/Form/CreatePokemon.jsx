@@ -64,7 +64,7 @@ const CreatePokemon = ({handleToggle}) => {
         <div>
           <label htmlFor="pokeAttack" className="create-form__input">
             Attack:
-            0<input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}/>100
+             0 <input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}/>100
           </label>
           <label htmlFor="pokeDefense" className="create-form__input">
             Defense:

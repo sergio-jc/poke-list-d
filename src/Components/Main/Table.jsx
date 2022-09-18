@@ -34,13 +34,13 @@ const Table = ({pokemons}) => {
               return (
               <tr key={pokemon.id}>
                 <td>{pokemon.name}</td> 
-                <td><img style={{width:"25px"}} src={pokemon.image} alt={pokemon.name} /> </td>
+                <td><img style={{width:"18px"}} src={pokemon.image} alt={pokemon.name} /> </td>
                 <td>{pokemon.attack}</td>
                 <td>{pokemon.defense}</td>
                 <td >
                   <div className='table__td-actions'>
-                    <img style={{width:"20px"}} src={edit_icon} alt="edit_icon" />
-                    <img onClick={()=>handleDelete(pokemon.id)} style={{width:"20px"}} src={garbage_icon} alt="garbage_icon" />
+                    <img style={{width:"18px"}} src={edit_icon} alt="edit_icon" />
+                    <img onClick={()=>handleDelete(pokemon.id)} style={{width:"18px"}} src={garbage_icon} alt="garbage_icon" />
                   </div>
                 </td>
               </tr>

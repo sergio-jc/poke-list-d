@@ -1,6 +1,6 @@
 
 .create-form {
-    margin-top: 35px;
+    margin: 25px 0;
     border: 2px solid var(--light-gray);
     background-color: var(--White);
 }

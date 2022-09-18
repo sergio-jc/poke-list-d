@@ -91,13 +91,10 @@ nav {
 }
 
 .btn__new-pokemon{
-
-   margin-top: 81px;
-   margin-right:50px;
-
+   margin-top: 50px;
 }
 
-.main-container{
+.main-container , .nav-container{
     margin: 5px auto;
     width: 800px;
 }
@@ -109,7 +106,7 @@ nav {
     input[type=range]{
         width: 180px;
     }
-    .main-container{
+    .main-container , .nav-container{
         font-size: 0.9em;
         width: 350px;
     }
