@@ -39,8 +39,8 @@ const Table = ({pokemons}) => {
                 <td>{pokemon.defense}</td>
                 <td >
                   <div className='table__td-actions'>
-                    <img style={{width:"18px"}} src={edit_icon} alt="edit_icon" />
-                    <img onClick={()=>handleDelete(pokemon.id)} style={{width:"18px"}} src={garbage_icon} alt="garbage_icon" />
+                    <img style={{width:"17px"}} src={edit_icon} alt="edit_icon" />
+                    <img onClick={()=>handleDelete(pokemon.id)} style={{width:"17px"}} src={garbage_icon} alt="garbage_icon" />
                   </div>
                 </td>
               </tr>
