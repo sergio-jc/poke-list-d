@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import "./Search.css"
 import search_icon from '../../img/search_icon.svg'
+import { HandleSearch } from '../../func/handleSearch'
 
-const Search = ({HandleSearch}) => {
+const Search = ({setPokemons}) => {
     const [input, setInput] = useState('')
     const handleSubmit = (e) => {
       e.preventDefault()
         fetch("https://bp-pokemons.herokuapp.com/?idAuthor=1")
       .then((res)=>res.json())
       .then((json)=> {
-        HandleSearch(json, input)
+        HandleSearch(json, input,setPokemons)
         setInput("")
     })}
 
