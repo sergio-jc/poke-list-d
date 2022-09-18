@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import CreatePokemon from "./Components/Form/CreatePokemon";
+import Form from "./Components/Form/Form";
 import Search from "./Components/Nav/Search";
-import Table from "./Components/Main/Table";
 import plus_icon from './img/plus_icon.svg'
 import "./App.css"
+import Table from "./Components/Table/Table";
 
 function App() {
   const [pokemons, setPokemons] = useState([])
@@ -36,7 +36,7 @@ function App() {
     <main className="main-container">
       <Table pokemons={pokemons}/>
       {
-        toggle && <CreatePokemon handleToggle={handleToggle}/>
+        toggle && <Form handleToggle={handleToggle}/>
       }
     </main>
    </div>

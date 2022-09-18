@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import "./CreatePokemon.css"
+import "./Form.css"
 import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
-import { validate } from './func/funcAux'
-import { handleCreate } from './func/handleCreate.js'
+import { validate } from '../../func/funcAux'
+import { handleCreate } from '../../func/handleCreate.js'
 
-const CreatePokemon = ({handleToggle}) => {
+const Form = ({handleToggle}) => {
   const [input, setInput] = useState({
     name: "",
     image: "",
@@ -70,4 +70,4 @@ const CreatePokemon = ({handleToggle}) => {
   )
 }
 
-export default CreatePokemon
+export default Form
