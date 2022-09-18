@@ -3,7 +3,7 @@ import React from 'react'
 import Cells from './Cells'
 import "./Table.css"
 
-const Table = ({pokemons, handleToggle}) => {
+const Table = ({pokemons, handleToggle,setId}) => {
   if (pokemons && pokemons.length > 0 ){
     return (
       <table>
@@ -20,7 +20,7 @@ const Table = ({pokemons, handleToggle}) => {
           {
             pokemons.map((pokemon)=>{
               return (
-              <Cells pokemon={pokemon} handleToggle={handleToggle}/>
+              <Cells pokemon={pokemon} handleToggle={handleToggle} setId={setId}/>
             )})
           }
         </tbody>

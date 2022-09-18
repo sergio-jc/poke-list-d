@@ -1,41 +1,18 @@
-import React, { useState } from 'react'
 import "./Form.css"
 import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
 import { validate } from '../../func/funcAux'
 import { handleCreate } from '../../func/handleCreate.js'
+import { usePokeForm } from '../../Hooks/usePokeForm'
 
-const Form = ({handleToggle}) => {
-  const [input, setInput] = useState({
-    name: "",
-    image: "",
-    attack: "50" ,
-    defense : "50" ,
-    hp : "0",
-    type: "pokemon",
-    idAuthor: 1
-  })
-  const [errors, setErrors] = useState({
-    name: "enter a name",
-    image: "copy a URL",
-  })
+const Form = ({handleToggle,id}) => {
+  const {
+    input,
+    errors,
+    disable,
+    handleInput,
 
-  const handleInput = (e) => {
-    setInput({
-      ...input,
-      [e.target.name] : e.target.value
-    })
-    setErrors(validate({
-      ...input,
-      [e.target.name] : e.target.value
-    }))
-  }
-  let disable ;
-  if( !errors.name.length && !errors.image.length){
-    disable = ""
-  } else {
-    disable = "create-form_disable-btn"
-  }
+  } = usePokeForm(id)
 
   return (
     <form onSubmit={(e)=>handleCreate(e,input)} className="create-form">
@@ -44,21 +21,21 @@ const Form = ({handleToggle}) => {
         <div>
           <label htmlFor="pokeName" className="create-form__input">
             <span className="create-form__input_span">Name:</span> 
-            <input className={errors.name.length? "error": ""} type="text" name="name" id="pokeName" onChange={handleInput}/>
+            <input className={errors.name.length? "error": ""} type="text" name="name" id="pokeName" onChange={handleInput} value={input.name}/>
           </label>
           <label htmlFor="imgPokemon" className="create-form__input">
             Image:
-            <input className={errors.image.length? "error": ""} type="text" name="image" id="imgPokemon" onChange={handleInput} placeholder="  url"/>
+            <input className={errors.image.length? "error": ""} type="text" name="image" id="imgPokemon" onChange={handleInput} placeholder="  url" value={input.image}/>
           </label>
         </div>
         <div>
           <label htmlFor="pokeAttack" className="create-form__input">
             <span className="create-form__input-range_span">Attack:</span> 
-             0 <input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}/>100
+             0 <input type="range" name="attack" id="pokeAttack" min={0} max={100}onChange={handleInput}value={input.attack}/>100
           </label>
           <label htmlFor="pokeDefense" className="create-form__input">
             Defense:
-            0<input type="range" name="defense" id="pokeDefense" min={0} max={100} onChange={handleInput}/>100
+            0<input type="range" name="defense" id="pokeDefense" min={0} max={100} onChange={handleInput}value={input.defense}/>100
           </label>
         </div>
       </div>

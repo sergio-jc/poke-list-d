@@ -10,6 +10,7 @@ import { useToggle } from "./Hooks/useToggle";
 function App() {
   const [pokemons, setPokemons] = usePokemons([])
   const [toggle , handleToggle] = useToggle(false)
+  const [id, setId] = useState("")
   return (
    <div>
     <nav className="nav-container">
@@ -17,8 +18,8 @@ function App() {
       <button onClick={handleToggle} className="btn__new-pokemon"><img src={plus_icon} alt="plus_icon"  style={{width:"30px", }} className="btn__new-pokemon_icon"/>New</button>
     </nav>
     <main className="main-container">
-      <Table pokemons={pokemons} handleToggle={handleToggle}/>
-      {toggle && <Form handleToggle={handleToggle}/>}
+      <Table pokemons={pokemons} handleToggle={handleToggle} setId={setId}/>
+      {toggle && <Form handleToggle={handleToggle} id={id}/>}
     </main>
    </div>
   );

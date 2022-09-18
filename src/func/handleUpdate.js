@@ -1,5 +1,6 @@
 
-export const handleCreate = (e, input) => {
+export const handleUpdate = (e, input) => {
+    console.log(input,"------------------")
     let {id}= input
     e.preventDefault()
     const options = {
