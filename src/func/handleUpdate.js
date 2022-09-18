@@ -8,7 +8,15 @@ export const handleUpdate = (e, input) => {
         headers: {
         "Content-Type": "application/json"
         },
-        body: JSON.stringify(input)
+        body: JSON.stringify({
+            attack : input.attack,
+            defense : input.defense,
+            hp: input.hp,
+            idAuthor : input.id_author,
+            image : input.image,
+            name: input.name ,
+            type : input.type
+        })
     };
     console.log(options)
     fetch(`https://bp-pokemons.herokuapp.com/${id}`,options)

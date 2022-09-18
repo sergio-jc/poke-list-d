@@ -13,6 +13,7 @@ export const usePokeForm= (id) => {
         type: "pokemon",
         idAuthor: 1
       })
+      console.log(input)
       
       const [errors, setErrors] = useState({
         name: "enter a name",
@@ -29,6 +30,7 @@ export const usePokeForm= (id) => {
           [e.target.name] : e.target.value
         }))
       }
+
       let disable ;
       if( !errors.name.length && !errors.image.length){
         disable = ""
@@ -36,11 +38,16 @@ export const usePokeForm= (id) => {
         disable = "create-form_disable-btn"
       }
 
+      let handleSave = handleUpdate
       useEffect(()=>{
         if( typeof id !== "undefined") {
         fetch(`https://bp-pokemons.herokuapp.com/${id}`)
         .then((res)=>res.json())
-        .then((json)=> console.log(json))
+        .then((json)=>{
+            console.log(json)
+             setInput(json)
+             handleSave = handleCreate
+            })
     }
       },[])
 
@@ -49,5 +56,6 @@ export const usePokeForm= (id) => {
         errors,
         disable,
         handleInput,  
+        handleSave
       }
 }

@@ -1,8 +1,6 @@
 import "./Form.css"
 import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
-import { validate } from '../../func/funcAux'
-import { handleCreate } from '../../func/handleCreate.js'
 import { usePokeForm } from '../../Hooks/usePokeForm'
 
 const Form = ({handleToggle,id}) => {
@@ -11,11 +9,12 @@ const Form = ({handleToggle,id}) => {
     errors,
     disable,
     handleInput,
+    handleSave
 
   } = usePokeForm(id)
 
   return (
-    <form onSubmit={(e)=>handleCreate(e,input)} className="create-form">
+    <form onSubmit={(e)=>handleSave(e,input)} className="create-form">
       <h2>New Pokemon</h2>
       <div className='create-form__inputs'>
         <div>
