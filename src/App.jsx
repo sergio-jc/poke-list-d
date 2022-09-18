@@ -34,7 +34,7 @@ function App() {
       <button onClick={handleToggle} className="btn__new-pokemon"><img src={plus_icon} alt="plus_icon"  style={{width:"30px", }} className="btn__new-pokemon_icon"/>New</button>
     </nav>
     <main className="main-container">
-      <Table pokemons={pokemons}/>
+      <Table pokemons={pokemons} handleToggle={handleToggle}/>
       {
         toggle && <Form handleToggle={handleToggle}/>
       }
