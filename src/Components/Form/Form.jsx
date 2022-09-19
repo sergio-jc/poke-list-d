@@ -8,7 +8,7 @@ const Form = ({handle,purpose}) => {
 
   return (
     <form onSubmit={(e)=>purpose.method(e, input)} className="create-form">
-      <h2>{purpose.title}</h2>
+      { purpose.title && <h2>{purpose.title}</h2>}
       <div className='create-form__inputs'>
         <div>
           <label htmlFor="pokeName" className="create-form__input">
