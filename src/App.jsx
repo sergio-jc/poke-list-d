@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Form from "./Components/Form/Form";
-import Search from "./Components/Nav/Search";
-import plus_icon from './img/plus_icon.svg'
+import NavBar from "./Components/Nav/NavBar";
 import "./App.css"
 import Table from "./Components/Table/Table";
 import { usePokemons } from "./Hooks/usePokemons";
@@ -15,12 +14,7 @@ function App() {
   const [purpose, setPurpose] = useState({})
   return (
    <div>
-    
-    <nav className="nav-container">
-      <Search setPokemons={setPokemons}/>
-      <button onClick={handleToggleCreate} className="btn__new-pokemon"><img src={plus_icon} alt="plus_icon"  style={{width:"30px", }} className="btn__new-pokemon_icon"/>New</button>
-    </nav>
-
+    <NavBar setPokemons={setPokemons} handle={handleToggleCreate}/>
     <main className="main-container">
       <Table pokemons={pokemons} handle={handleToggleUpdate} set={setPurpose}/>
       
