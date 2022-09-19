@@ -15,7 +15,7 @@ describe("<Form />", ()=>{
         const component = render(<Form handle={mockHandler} purpose={options}/>)
 
         component.container.querySelector("form")
-      console.log(component.container.querySelector("input"))  
+        component.container.querySelector("input")
         component.container.querySelector("button")
     })
 })
