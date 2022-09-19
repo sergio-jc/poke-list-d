@@ -22,8 +22,8 @@ function App() {
     </nav>
 
     <main className="main-container">
-      <Table pokemons={pokemons} handle={handleToggleUpdate} setPurpose={setPurpose}/>
-
+      <Table pokemons={pokemons} handle={handleToggleUpdate} set={setPurpose}/>
+      
       {toggleCreate && <Form 
       handle={handleToggleCreate} 
       purpose={{title : "New Pokemon",method : handlePost}}/>}

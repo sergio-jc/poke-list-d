@@ -1,9 +1,8 @@
 import React from 'react'
-
 import Cells from './Cells'
 import "./Table.css"
 
-const Table = ({pokemons, handleToggle,setId}) => {
+const Table = ({pokemons, handle,set}) => {
   if (pokemons && pokemons.length > 0 ){
     return (
       <table>
@@ -18,10 +17,8 @@ const Table = ({pokemons, handleToggle,setId}) => {
         </thead>
         <tbody>
           {
-            pokemons.map((pokemon)=>{
-              return (
-              <Cells pokemon={pokemon} handleToggle={handleToggle} setId={setId}/>
-            )})
+            pokemons.map((pokemon,id)=>{
+              return <Cells key={`${id}_cell`} pokemon={pokemon} handle={handle} set={set}/>})
           }
         </tbody>
       </table>

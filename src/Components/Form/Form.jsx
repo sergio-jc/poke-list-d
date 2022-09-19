@@ -4,7 +4,7 @@ import save_icon from '../../img/save_icon.svg'
 import { usePokeForm } from '../../Hooks/usePokeForm'
 
 const Form = ({handle,purpose}) => {
-  const {input,errors,disable,handleInput} = usePokeForm(purpose.pokemon)
+  const {input,errors,disable,handleInput} = usePokeForm(purpose.input)
 
   return (
     <form onSubmit={(e)=>purpose.method(e, input)} className="create-form">
