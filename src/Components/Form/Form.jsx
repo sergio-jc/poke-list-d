@@ -3,19 +3,12 @@ import close_icon from '../../img/close_icon.svg'
 import save_icon from '../../img/save_icon.svg'
 import { usePokeForm } from '../../Hooks/usePokeForm'
 
-const Form = ({handleToggle,id}) => {
-  const {
-    input,
-    errors,
-    disable,
-    handleInput,
-    handleSave
-
-  } = usePokeForm(id)
+const Form = ({handle,purpose}) => {
+  const {input,errors,disable,handleInput} = usePokeForm(purpose.pokemon)
 
   return (
-    <form onSubmit={(e)=>handleSave(e,input)} className="create-form">
-      <h2>New Pokemon</h2>
+    <form onSubmit={(e)=>purpose.method(e, input)} className="create-form">
+      <h2>{purpose.title}</h2>
       <div className='create-form__inputs'>
         <div>
           <label htmlFor="pokeName" className="create-form__input">
@@ -40,7 +33,7 @@ const Form = ({handleToggle,id}) => {
       </div>
       <div className='create-form__btn-container'>
         <button className={disable}><img style={{width: '18px'}} src={save_icon} alt="search_icon" />Save</button>
-        <button onClick={handleToggle}><img style={{width: '13px'}} src={close_icon} alt="search_icon" />Close</button>
+        <button onClick={handle}><img style={{width: '13px'}} src={close_icon} alt="search_icon" />Close</button>
       </div>
     </form>
   )

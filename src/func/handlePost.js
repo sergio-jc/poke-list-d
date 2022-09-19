@@ -1,4 +1,4 @@
-export const handleCreate = (e, input) => {
+export const handlePost = (e, input) => {
     e.preventDefault()
     const options = {
       method: "POST",
