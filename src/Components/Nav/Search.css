@@ -6,8 +6,7 @@
 }
 
 .search-form__label {
-    
-    color: #363f46;
+    color: var(--strong-gray);
 }
 
 .search-form__input-container{
@@ -22,7 +21,6 @@
 }
 
 .search-form__btn{
-    
     border: none;
     background-color: transparent;
     padding: 5px;
@@ -34,7 +32,6 @@
     color: var(--main-purple);
 }
 .search-form__input {
-    
     width: 160px;
     height: 30px;
     outline: none;

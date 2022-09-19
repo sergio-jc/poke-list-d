@@ -18,7 +18,7 @@ const Table = ({pokemons, handle,set}) => {
         <tbody>
           {
             pokemons.map((pokemon,id)=>{
-              return <Cells key={`${id}_cell`} pokemon={pokemon} handle={handle} set={set}/>})
+              return <Cells key={`row_${id}`} pokemon={pokemon} handle={handle} set={set}/>})
           }
         </tbody>
       </table>

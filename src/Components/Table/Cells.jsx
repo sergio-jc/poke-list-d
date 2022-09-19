@@ -6,7 +6,6 @@ import { handlePut } from '../../func/handlePut'
 import { parseInput } from '../../func/parseInput'
 
 const Cells = ({pokemon,handle,set}) => {
-  console.log(parseInput(pokemon))
   return (
     <tr key={pokemon.id}>
         <td>{pokemon.name}</td> 
